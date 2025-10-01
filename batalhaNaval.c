@@ -42,7 +42,7 @@ int main(){
 
     for (int i = 2; i < 6; i++)
     {
-        tabuleiro[][i] = 3;
+        tabuleiro[8][i] = 3;
     }
     
     // 03. Impressão do Tabuleiro
