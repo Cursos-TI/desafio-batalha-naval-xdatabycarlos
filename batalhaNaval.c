@@ -34,7 +34,7 @@ int main(){
 
     for (int i = 2; i < 7; i++)
     {
-        tabuleiro[i][4] = 3;
+        tabuleiro[i][8] = 3;
     }
 
     // Posicionamento do Encouraçado (Horizontal)
@@ -44,17 +44,39 @@ int main(){
     {
         tabuleiro[8][i] = 3;
     }
+
+    // Encouraçado na Diagonal principal
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            if (i == j) // Mesmo indice de linhas e colunas
+            {
+                tabuleiro[i][j] = 3;
+            }
+            
+        }
+        
+    }
+
+    // Encouraçado na Diagonal secundaria
+    for (int i = 3; i < 7; i++)
+    {
+        // j = 9 - i
+        tabuleiro[i][9-i] = 3; // Ex.: i = 6, então j = 9 - 6 (3)
+    }
+    
     
     // 03. Impressão do Tabuleiro
 
     printf("------ BATALHA NAVAL ------\n\n");
 
-    printf("   ");
+    printf("    ");
 
     // Impressão do cabeçalho das Colunas
     for (int i = 0; i < 10; i++)
     {
-        printf("%s ", colunas[i]);
+        printf("%s  ", colunas[i]);
     }
     // Quebra de linha pós impressão dos cabeçalhos
     printf("\n");
@@ -62,11 +84,11 @@ int main(){
     // Impressão do Tabuleiro com as peças escolhidas
     for (int i = 0; i < 10; i++)
     {   
-        printf("%s ", linhas[i]);
+        printf("%s  ", linhas[i]);
 
         for (int j = 0; j < 10; j++)
         {
-            printf("%d ", tabuleiro[i][j]);
+            printf("%d  ", tabuleiro[i][j]);
         }
         printf("\n");
     }
